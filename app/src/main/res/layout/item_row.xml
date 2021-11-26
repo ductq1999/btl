@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:elevation="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/ten_laptop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên"
+
+        />
+    <TextView
+        android:id="@+id/loai_laptop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loại"
+        android:layout_below="@+id/ten_laptop"
+        />
+    <TextView
+            android:id="@+id/gia_tri_laptop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá trị"
+            android:layout_below="@+id/loai_laptop"
+            android:layout_alignParentRight="true"
+    />
+    <TextView
+            android:id="@+id/kich_thuoc_laptop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kích thước"
+            android:layout_below="@+id/gia_tri_laptop"
+    />
+    <TextView
+            android:id="@+id/man_hinh_laptop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="màn hình"
+            android:layout_alignParentRight="true"
+    />
+    <TextView
+            android:id="@+id/chip_laptop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chip"
+            android:layout_below="@+id/ten_laptop"
+            android:layout_alignParentRight="true"
+    />
+    <TextView
+            android:id="@+id/ram_laptop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ram"
+            android:layout_below="@+id/chip_laptop"
+    />
+</RelativeLayout>
