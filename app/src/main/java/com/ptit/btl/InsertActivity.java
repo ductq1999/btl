@@ -30,9 +30,9 @@ public class InsertActivity extends AppCompatActivity {
             LaptopRepo repo = new LaptopRepo(sqLiteHelper);
 
             Laptop laptop = new Laptop(0, ten.getText().toString(), loai.getText().toString(), Integer.parseInt(giaTri.getText().toString()),
-                    kichThuoc.getText().toString(), manHinh.getText().toString(), chip.getText().toString(), ram.getText().toString());
+                    Float.parseFloat(kichThuoc.getText().toString()), manHinh.getText().toString(), chip.getText().toString(), ram.getText().toString());
             repo.add(laptop);
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
             finish();
         });

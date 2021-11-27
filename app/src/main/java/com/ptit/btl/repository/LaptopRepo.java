@@ -13,7 +13,7 @@ import java.util.List;
 
 public class LaptopRepo {
 
-    private SQLiteOpenHelper helper;
+    private final SQLiteOpenHelper helper;
 
     public LaptopRepo(SQLiteOpenHelper helper) {
         this.helper = helper;
@@ -35,7 +35,7 @@ public class LaptopRepo {
     public List<Laptop> getAll() {
         List<Laptop> list = new ArrayList<>();
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from " + MySQLiteHelper.tableLaptop,null);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("select * from " + MySQLiteHelper.tableLaptop,null);
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 int id = cursor.getInt(0);
@@ -43,7 +43,7 @@ public class LaptopRepo {
                 @SuppressLint("Range") String chip = cursor.getString(cursor.getColumnIndex("chip"));
                 @SuppressLint("Range") int giaTri = cursor.getInt(cursor.getColumnIndex("gia_tri"));
                 @SuppressLint("Range") String loai = cursor.getString(cursor.getColumnIndex("loai"));
-                @SuppressLint("Range") String kichThuoc = cursor.getString(cursor.getColumnIndex("kich_thuoc"));
+                @SuppressLint("Range") float kichThuoc = cursor.getFloat(cursor.getColumnIndex("kich_thuoc"));
                 @SuppressLint("Range") String manHinh = cursor.getString(cursor.getColumnIndex("man_hinh"));
                 @SuppressLint("Range") String ram = cursor.getString(cursor.getColumnIndex("ram"));
                 Laptop laptop = new Laptop(id, ten, loai, giaTri, kichThuoc, manHinh, chip, ram);

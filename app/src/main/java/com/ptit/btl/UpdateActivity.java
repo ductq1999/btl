@@ -25,12 +25,12 @@ public class UpdateActivity extends AppCompatActivity {
         EditText ram = findViewById(R.id.edt_ram);
         Button btn = findViewById(R.id.btn_update_laptop);
 
-        Laptop laptop = (Laptop) getIntent().getExtras().get(MainActivity.EXTRA_KEY);
+        Laptop laptop = (Laptop) getIntent().getExtras().get(HomeActivity.EXTRA_KEY);
 
         ten.setText(laptop.getTen());
         loai.setText(laptop.getLoai());
         giaTri.setText(String.valueOf(laptop.getGiaTri()));
-        kichThuoc.setText(laptop.getKichThuoc());
+        kichThuoc.setText(String.valueOf(laptop.getKichThuoc()));
         manHinh.setText(laptop.getManHinh());
         chip.setText(laptop.getChip());
         ram.setText(laptop.getRam());
@@ -42,10 +42,10 @@ public class UpdateActivity extends AppCompatActivity {
 
             Laptop laptop1 = new Laptop(laptop.getId(),
                     ten.getText().toString(), loai.getText().toString(), Integer.parseInt(giaTri.getText().toString()),
-                    kichThuoc.getText().toString(), manHinh.getText().toString(), chip.getText().toString(), ram.getText().toString());
+                    Float.parseFloat(kichThuoc.getText().toString()), manHinh.getText().toString(), chip.getText().toString(), ram.getText().toString());
             repo.update(laptop1);
 
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
             finish();
         });

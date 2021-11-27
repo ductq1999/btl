@@ -41,11 +41,10 @@ public class LaptopAdapter extends RecyclerView.Adapter<LaptopAdapter.MyViewHold
         holder.ten_laptop.setText(laptop.getTen());
         holder.chip_laptop.setText(laptop.getChip());
         holder.gia_tri_laptop.setText(String.valueOf(laptop.getGiaTri()));
-        holder.kich_thuoc_laptop.setText(laptop.getKichThuoc());
+        holder.kich_thuoc_laptop.setText(String.valueOf(laptop.getKichThuoc()));
         holder.loai_laptop.setText(laptop.getLoai());
         holder.man_hinh_laptop.setText(laptop.getManHinh());
         holder.ram_laptop.setText(laptop.getRam());
-
     }
 
     @Override

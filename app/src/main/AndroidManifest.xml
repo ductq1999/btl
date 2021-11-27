@@ -4,19 +4,26 @@
 
     <application
             android:allowBackup="true"
-            android:label="@string/app_name"
             android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.Btl">
-        <activity android:name=".UpdateActivity" />
-        <activity android:name=".InsertActivity" />
+        <activity android:name=".HomeActivity">
+        </activity>
+        <activity android:name=".UpdateActivity"/>
+        <activity android:name=".InsertActivity"/>
+        <activity android:name=".HomeHangActivity"/>
+        <activity android:name=".InsertHangActivity"/>
+        <activity android:name=".UpdateHangActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+
             </intent-filter>
         </activity>
-    </application>/>
+    </application>
+
 </manifest>

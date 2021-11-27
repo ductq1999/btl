@@ -1,92 +1,32 @@
 package com.ptit.btl;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.ptit.btl.adapter.LaptopAdapter;
-import com.ptit.btl.helper.MySQLiteHelper;
-import com.ptit.btl.model.Laptop;
-import com.ptit.btl.repository.LaptopRepo;
-
-import java.util.List;
+import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String EXTRA_KEY = "OOOOO";
-    List<Laptop> list;
-    SearchView searchView;
-    LaptopAdapter adapter;
-    LaptopRepo repo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView = findViewById(R.id.my_recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        setContentView(R.layout.activity_main2);
 
-        adapter = new LaptopAdapter();
-        recyclerView.setAdapter(adapter);
+        Button btn1  = findViewById(R.id.btn1);
 
-        MySQLiteHelper sqLiteHelper = new MySQLiteHelper(this);
-        repo = new LaptopRepo(sqLiteHelper);
-
-        list = repo.getAll();
-        adapter.setLaptopList(list);
-
-        adapter.setOnItemClickListener((view, position, isLongClick) -> {
-            if (isLongClick) {
-                PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
-                popupMenu.getMenu().add("Xóa");
-                popupMenu.setOnMenuItemClickListener(item -> {
-                    if (item.getTitle().equals("Xóa")) {
-                        repo.delete(list.get(position));
-                        list.remove(position);
-                        adapter.notifyItemRemoved(position);
-                    }
-                    return false;
-                });
-                popupMenu.show();
-            } else {
-                Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(EXTRA_KEY, list.get(position));
-                intent.putExtras(bundle);
-
-                startActivity(intent);
-                finish();
-            }
-        });
-        FloatingActionButton floatingActionButton = findViewById(R.id.floatingActionButton);
-        floatingActionButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, InsertActivity.class);
-            startActivity(intent);
-            finish();
+        btn1.setOnClickListener(v -> {
+            startActivity(new Intent(this, HomeActivity.class));
         });
 
-    }
+        Button btn2  = findViewById(R.id.btn2);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_laptop, menu);
-        searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
-
-        return true;
-    }
+        btn2.setOnClickListener(v -> {
+            startActivity(new Intent(this, HomeHangActivity.class));
+        });
 
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return true;
     }
 }

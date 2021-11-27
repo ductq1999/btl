@@ -12,7 +12,7 @@ public class Laptop implements Serializable {
 
     private int giaTri;
 
-    private String kichThuoc;
+    private float kichThuoc;
 
     private String manHinh;
 
@@ -20,7 +20,7 @@ public class Laptop implements Serializable {
 
     private String ram;
 
-    public Laptop(int id, String ten, String loai, int giaTri, String kichThuoc, String manHinh, String chip, String ram) {
+    public Laptop(int id, String ten, String loai, int giaTri, float kichThuoc, String manHinh, String chip, String ram) {
         this.id = id;
         this.ten = ten;
         this.loai = loai;
@@ -63,11 +63,11 @@ public class Laptop implements Serializable {
         this.giaTri = giaTri;
     }
 
-    public String getKichThuoc() {
+    public float getKichThuoc() {
         return kichThuoc;
     }
 
-    public void setKichThuoc(String kichThuoc) {
+    public void setKichThuoc(float kichThuoc) {
         this.kichThuoc = kichThuoc;
     }
 
